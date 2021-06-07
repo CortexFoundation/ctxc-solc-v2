@@ -1,3 +1,8 @@
+#Put Dockerfile to ctxc-solc-v2 source directory, 
+#then run as follow to build and use compile tool
+# docker build -f Dockerfile -t ctxc-solc:v2.0.0 --network=host .
+# docker run -it --rm -v /Path/To/Solidity/SrcFiles:/root/ ctxc-solc:v2.0.0 --opcodes /root/your.target.sol
+
 FROM alpine AS build
 MAINTAINER chriseth <chris@ethereum.org>
 #Official solidity docker image
