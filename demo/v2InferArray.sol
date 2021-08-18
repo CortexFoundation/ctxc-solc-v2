@@ -2,7 +2,7 @@
 pragma solidity >=0.6.0 <0.9.0;
           
 // Creating a contract
-contract v3InferArray{
+contract ConstructorInferArray{
 
     // infer_array input is bytes storage(defined by ctxc-solc-v2)
     bytes public input_array;
@@ -12,14 +12,15 @@ contract v3InferArray{
         infer_lfj();
     }
 
-    function infer_lfj() public view returns(bool){
+    function infer_lfj() public returns(uint256){
         address model = address(0x0000000000000000000000000000000000001013);
-        return InferArray(model);
+        uint256 infer_output = InferArray(model);
+        return infer_output;
     }
 
-    function InferArray(address model_addr) public view returns (bool) {
+    function InferArray(address model_addr) public returns (uint256) {
         // feed data in input_array, feed model into model_addr, and store the output in infer_output
-        bytes memory output = new bytes(1);
-        return inferArray(model_addr, input_array, output);
+        uint256 infer_output = inferArray(model_addr, input_array);
+        return infer_output;
    }
 }

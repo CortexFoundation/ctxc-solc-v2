@@ -16,5 +16,4 @@ contract v3Infer{
         bytes memory output = new bytes(1);
         return infer(model_addr, input_addr, output);
     }
-
 }
