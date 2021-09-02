@@ -331,6 +331,8 @@ bool CompilerStack::parse()
 		BOOST_THROW_EXCEPTION(CompilerError() << errinfo_comment("Must call parse only after the SourcesSet state."));
 	m_errorReporter.clear();
 
+    // Pre-Release tag can be Removed by deleting below lines, but it's insecure!
+    // 'Warning: This is a pre-release compiler version, please do not use it in production.'
 	if (SemVerVersion{string(VersionString)}.isPrerelease())
 		m_errorReporter.warning(3805_error, "This is a pre-release compiler version, please do not use it in production.");
 
