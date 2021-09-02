@@ -597,6 +597,7 @@ bool ExpressionCompiler::visit(FunctionCall const& _functionCall)
         {
 			arguments[2]->accept(*this);
 			utils().convertType(*arguments[2]->annotation().type, ArrayType(DataLocation::Memory), true);
+            // utils().convertType(*arguments[2]->annotation().type, ArrayType(DataLocation::Memory, IntegerType(256, IntegerType::Modifier::Unsigned).encodingType()), true);
 			arguments[1]->accept(*this);
             // TODO: address is signed or unsigned?
 			utils().convertType(*arguments[1]->annotation().type, IntegerType(160, IntegerType::Modifier::Unsigned), true);
@@ -610,8 +611,10 @@ bool ExpressionCompiler::visit(FunctionCall const& _functionCall)
         {
 			arguments[2]->accept(*this);
 			utils().convertType(*arguments[2]->annotation().type, ArrayType(DataLocation::Memory), true);
+            //utils().convertType(*arguments[2]->annotation().type, ArrayType(DataLocation::Memory, IntegerType(256, IntegerType::Modifier::Unsigned).encodingType()), true);
 			arguments[1]->accept(*this);
 			utils().convertType(*arguments[1]->annotation().type, ArrayType(DataLocation::Storage), true);
+            //utils().convertType(*arguments[1]->annotation().type, ArrayType(DataLocation::Memory, IntegerType(256, IntegerType::Modifier::Unsigned).encodingType()), true);
 			arguments[0]->accept(*this);
             // TODO: address is signed or unsigned?
 			utils().convertType(*arguments[0]->annotation().type, IntegerType(160, IntegerType::Modifier::Unsigned), true);
