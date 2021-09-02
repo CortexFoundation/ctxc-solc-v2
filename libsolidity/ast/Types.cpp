@@ -471,8 +471,6 @@ MemberList::MemberMap AddressType::nativeMembers(ASTNode const*) const
 		{"balance", TypeProvider::uint256()},
 		{"code", TypeProvider::array(DataLocation::Memory)},
 		{"codehash",  TypeProvider::fixedBytes(32)},
-		{"infer", TypeProvider::function(strings{"address", "address"}, strings{"uint256"}, FunctionType::Kind::Infer)},
-		{"inferArray", TypeProvider::function(strings{"address","bytes"}, strings{"uint256"}, FunctionType::Kind::InferArray)},
 		{"call", TypeProvider::function(strings{"bytes memory"}, strings{"bool", "bytes memory"}, FunctionType::Kind::BareCall, false, StateMutability::Payable)},
 		{"callcode", TypeProvider::function(strings{"bytes memory"}, strings{"bool", "bytes memory"}, FunctionType::Kind::BareCallCode, false, StateMutability::Payable)},
 		{"delegatecall", TypeProvider::function(strings{"bytes memory"}, strings{"bool", "bytes memory"}, FunctionType::Kind::BareDelegateCall, false, StateMutability::NonPayable)},
